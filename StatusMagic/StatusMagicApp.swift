@@ -41,10 +41,14 @@ struct StatusMagicApp: App {
             }
         } else if #available(iOS 16.0, *) {
             supported = true
-        } else if #available(iOS 15.7.2, *) {
-//            supported = false
         } else if #available(iOS 15.0, *) {
-            supported = true
+            if #available(iOS 15.7.4, *) {
+                supported = true
+            } else if #available(iOS 15.7.2, *) {
+//                supported = false
+            } else {
+                supported = true
+            }
         } else if #available(iOS 14.0, *) {
             supported = true
             needsTrollStore = true
